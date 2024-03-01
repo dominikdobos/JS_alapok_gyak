@@ -6,7 +6,7 @@ window.addEventListener("load", function () {
   elemekFormazasa1();
   esemenykezeles1();
   esemenykezeles2();
-  esemenykezeles3();
+  esemenykezeles4();
 });
 
 function elemekElerese1() {
@@ -50,13 +50,20 @@ function esemenykezeles2() {
   const GOMB_ELEM = document.querySelector("#feladat_btn");
   GOMB_ELEM.addEventListener("click", function () {
     FELADAT_ELEM.innerHTML += `<div><img id="kep" src="./kep.jpg" alt="kep" /></div>`;
+    const KEP_ELEM = document.querySelector("#kep");
+    KEP_ELEM.addEventListener("mouseover", function () {
+      KEP_ELEM.classList.add("kis_kep");
+    });
   });
 }
-function esemenykezeles3() {
-  const KEP_ELEM = document.querySelector(".feladat img");
-  KEP_ELEM.addEventListener("mouseover", function () {
-    KEP_ELEM.classList.add("kis_kep");
-    console.log("asd");
-  });
+function esemenykezeles4() {
+  const SZAM_ELEMEK = document.querySelectorAll(".tarolo > .elem");
+  const MEGJELENITO_ELEM = document.querySelector(".megjelenito");
+  let kivalasztott_szam;
+  for (let index = 0; index < SZAM_ELEMEK.length; index++) {
+    SZAM_ELEMEK[index].addEventListener("click", function () {
+      kivalasztott_szam = index + 1;
+      MEGJELENITO_ELEM.innerHTML = `${kivalasztott_szam}`;
+    });
+  }
 }
-function esemenykezeles4() {}
